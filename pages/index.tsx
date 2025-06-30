@@ -22,7 +22,7 @@ export default function Page({ pageData }: PageProps) {
 
   return (
     <div>
-      <MenuComponent />
+  
       <div className="homepage">
         <div className="herosection-wrapper-home relative w-full sm:h-screen overflow-hidden">
           {/* Video with darker tint */}
