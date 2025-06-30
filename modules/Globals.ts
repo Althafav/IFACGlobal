@@ -1,0 +1,33 @@
+import { TypeResolver } from "./TypeResolvers";
+
+
+const KontentDelivery = require("@kentico/kontent-delivery");
+
+export default class Globals {
+    static PROJECT_ID: string = "ffaed23c-be9d-00c4-c635-e5ab90e66639";
+
+    static SECURE_API_KEY: string =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwODk3ZDk4OGFlYzQ0NjBlOWFiNTRjMjhiZDNjZjE0OCIsImlhdCI6MTczNjE0ODA1MCwibmJmIjoxNzM2MTQ4MDUwLCJleHAiOjE3Njc2ODM5NDAsInZlciI6IjIuMC4wIiwic2NvcGVfaWQiOiI3MzFmNjVkOTM1YTg0NTJhYTczODg4NDkxYjA3YzlkNCIsInByb2plY3RfY29udGFpbmVyX2lkIjoiMGUzNTE4ZWUyMzcyMDA3MWNhYTE3NDRiM2RhODMzMmEiLCJhdWQiOiJkZWxpdmVyLmtvbnRlbnQuYWkifQ.Eq_7frfwuAjbE82PaXfcEaumkgXK9cmePQud2777icM";
+  
+    static KontentClient: any = new KontentDelivery.DeliveryClient({
+        projectId: Globals.PROJECT_ID,
+        globalQueryConfig: {
+            useSecuredMode: true, // Queries the Delivery API using secure access.
+        },
+        secureApiKey: Globals.SECURE_API_KEY,
+        typeResolvers: TypeResolver,
+
+    });
+
+    static SITE_NAME = "IFAC";
+
+
+    static CURRENT_LANG_CODENAME: string = "default";
+
+    static LANG_COOKIE: string = "0cd50f-lang-cookie";
+
+    static BASE_URL: string =
+        process.env.NODE_ENV === "production"
+            ? "https://strategic-v2-omega.vercel.app/"
+            : "http://localhost:3000/";
+}

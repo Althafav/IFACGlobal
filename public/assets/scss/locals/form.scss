@@ -1,0 +1,138 @@
+.register-interest-form-wrapper-2026 {
+  max-width: 960px;
+  margin: 0 auto;
+  background: white;
+
+  .form-banner-wrapper {
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    > * {
+      flex: 1;
+      min-width: 220px;
+    }
+  }
+
+  .custom-input,
+  .custom-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    transition: border 0.2s, background 0.2s;
+
+    &:focus {
+      border-color: #2563eb;
+      background-color: #ffffff;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+    }
+  }
+
+  .phone-wrapper {
+    display: flex;
+    gap: 0.5rem;
+
+    .custom-select {
+      width: 100px;
+    }
+
+    .phone {
+      flex: 1;
+    }
+  }
+
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+
+    label {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input {
+        accent-color: #2563eb;
+      }
+
+      &:hover {
+        background-color: #e2e8f0;
+      }
+
+      input:checked + span {
+        font-weight: 600;
+        color: #2563eb;
+      }
+    }
+  }
+
+  .options-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+
+      input {
+        accent-color: #2563eb;
+      }
+    }
+  }
+
+  .captcha-row {
+    margin-top: 1.5rem;
+  }
+
+  .submit-row {
+    margin-top: 2rem;
+
+    .submit-btn {
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #1e40af;
+      }
+    }
+  }
+}

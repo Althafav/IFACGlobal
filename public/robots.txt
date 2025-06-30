@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://https://ifacglobal.com/
+
+# Sitemaps
+Sitemap: https://https://ifacglobal.com/sitemap.xml

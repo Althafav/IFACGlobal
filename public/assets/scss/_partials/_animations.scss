@@ -1,0 +1,120 @@
+@-webkit-keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.05);
+        /* Slightly zoomed in */
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* Moderate zoom */
+    }
+
+    75% {
+        transform: scale(1.05);
+        /* Slightly zoomed out again */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Return to original size */
+    }
+}
+
+@-webkit-keyframes popUp {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+@keyframes lightningEffect {
+    0% {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+   
+    50% {
+        opacity: 1;
+        transform: translateX(50%);
+    }
+    75% {
+        opacity: 0.5;
+        transform: translateX(75%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes dashAround {
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 60px);
+    transform: rotate(0deg);
+  }
+  25.01% {
+    top: 0;
+    left: 100%;
+    transform: rotate(90deg);
+  }
+  50% {
+    top: calc(100% - 60px);
+    left: 100%;
+    transform: rotate(90deg);
+  }
+  50.01% {
+    top: 100%;
+    left: 100%;
+    transform: rotate(180deg);
+  }
+  75% {
+    top: 100%;
+    left: 0;
+    transform: rotate(180deg);
+  }
+  75.01% {
+    top: 100%;
+    left: 0;
+    transform: rotate(270deg);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotate(270deg);
+  }
+}

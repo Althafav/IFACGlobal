@@ -1,0 +1,16 @@
+@import "_partials/_variables";
+@import "_partials/animations";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+body {
+  background: white;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+
+@import "./locals/home.scss";
+@import "./locals/menu-component.scss";
+@import "./locals/form.scss";
