@@ -37,7 +37,7 @@ export default function Page({ pageData }: PageProps) {
             <source src={pageData.bannervideolink.value} type="video/mp4" />
           </video>
           <div className="relative z-10 container mx-auto h-full flex flex-col justify-end py-20">
-            <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-extrabold max-w-4xl leading-tight">
+            <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-extrabold max-w-4xl leading-tight mb-2">
               {pageData.bannerheading.value}
             </h1>
             <p>{pageData.bannersubheading.value}</p>
