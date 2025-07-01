@@ -40,6 +40,7 @@ export default function Page({ pageData }: PageProps) {
             <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-extrabold max-w-4xl leading-tight">
               {pageData.bannerheading.value}
             </h1>
+            <p>{pageData.bannersubheading.value}</p>
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
               {items.map((item: any, idx: number) => (
