@@ -178,7 +178,7 @@ export default function RegisterPage({
           </div>
         </div>
 
-        <div className="register-interest-form-wrapper-2026 container mx-auto">
+        <div className="register-interest-form-wrapper-2026 container mx-auto py-10">
           <div className="row sm:p-10 rounded-2xl sm:border">
             <div className="col-12">
               <div className="row">

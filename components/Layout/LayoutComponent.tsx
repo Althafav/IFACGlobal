@@ -4,11 +4,12 @@ import FooterComponent from "./FooterComponent";
 
 export default function LayoutComponent({ children }: any) {
   return (
-    <React.Fragment>
+    <div className="flex flex-col min-h-screen">
       <MenuComponent />
-      {children}
-      <FooterComponent/>
-      
-    </React.Fragment>
+
+      <main className="flex-grow">{children}</main>
+
+      <FooterComponent />
+    </div>
   );
 }
