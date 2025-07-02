@@ -36,10 +36,10 @@ export default function Page({ pageData }: PageProps) {
           </video>
         </div>
         <div className="bg-white container mx-auto py-10">
-          <span
+          <div
             dangerouslySetInnerHTML={{ __html: pageData.bannerheading.value }}
-            className="text-black text-2xl sm:text-3xl lg:text-6xl  max-w-4xl leading-tight mb-2"
-          ></span>
+            className="text-black text-2xl sm:text-3xl lg:text-6xl  max-w-5xl leading-tight mb-5"
+          ></div>
           <span
             className="text-2xl mb-4"
             dangerouslySetInnerHTML={{
@@ -74,9 +74,9 @@ export default function Page({ pageData }: PageProps) {
                       <img
                         src={item.image.value[0]?.url}
                         alt=""
-                        className="w-[120px] object-contain"
+                        className="w-[100px] object-contain aspect-square"
                       />
-                      <div className="max-w-[200px]">
+                      <div className="max-w-[230px]">
                         <p className="text-white text-2xl font-medium">
                           {item.name.value}
                         </p>

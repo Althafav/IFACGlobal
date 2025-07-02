@@ -52,8 +52,8 @@ export default function MenuComponent() {
                     target={target}
                     className="px-3 py-2 
                     rounded-t-lg 
-                    text-gray-800 
-                    hover:bg-gray-800 hover:text-white 
+                    text-black 
+                    hover:bg-black hover:text-white 
                     transition-colors duration-200"
                   >
                     {name}
@@ -62,7 +62,7 @@ export default function MenuComponent() {
                   {children && children.length > 0 && (
                     <ul
                       className="absolute top-full left-0 w-48 
-                      bg-gray-800 text-white 
+                      bg-black text-white 
                       rounded-b-lg 
                       opacity-0 invisible 
                       group-hover:opacity-100 group-hover:visible 

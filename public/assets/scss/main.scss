@@ -2,9 +2,19 @@
 @import "_partials/animations";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("/fonts/HelveticaNeue.woff2") format("woff2"),
+    url("/fonts/HelveticaNeue.woff") format("woff"),
+    url("/fonts/HelveticaNeue.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: white;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -35,8 +45,6 @@ body {
 .swiper {
   padding: 20px 0 !important;
 }
-
-
 
 @import "./locals/home.scss";
 @import "./locals/menu-component.scss";

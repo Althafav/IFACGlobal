@@ -55,7 +55,7 @@ export default function Page({ pageData }: PageProps) {
                   return (
                     <Link
                       href={item.link.value}
-                      className="px-4 py-2 dubai-cta-gradient-bg text-white text-xl"
+                      className="px-4 py-2 dubai-cta-gradient-bg text-white text-md sm:text-2xl"
                     >
                       <span>{item.name.value}</span>
                     </Link>
