@@ -30,19 +30,35 @@ export default function Page({ pageData }: PageProps) {
 
           <div className="relative z-10 container mx-auto h-full flex flex-col justify-end py-10 sm:py-20">
             <h1 className="text-white text-2xl sm:text-3xl lg:text-6xl  max-w-4xl leading-tight font-light">
-              <span className="font-medium">Product</span> Sectors
+              <span
+                className="prose prose-invert text-4xl sm:text-6xl text-white"
+                dangerouslySetInnerHTML={{
+                  __html: pageData.bannerheading.value,
+                }}
+              />
+              <span
+                className="prose prose-invert text-2xl sm:text-4xl text-white"
+                dangerouslySetInnerHTML={{
+                  __html: pageData.bannersubheading.value,
+                }}
+              />
             </h1>
           </div>
         </div>
 
-        <div className="product-items-wrapper bg-black">
+        <div className="product-items-wrapper bg-black py-20">
           <div className="container mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-10 sm:gap-20">
               {pageData.productsectoritems.value.map(
                 (item: any, index: number) => {
                   return (
-                    <div className="relative">
-                      <div className="sm:max-w-[200px] mb-5">
+                    <div className="relative" key={index}>
+                      <img
+                        src={item.image.value[0]?.url}
+                        alt=""
+                        className="h-[400px] max-w-[350px] object-cover rounded-2xl mb-3"
+                      />
+                      <div className="sm:max-w-[200px] mb-5 relative z-10 ">
                         <span
                           className="prose text-white prose-invert text-xl sm:text-3xl font-light "
                           dangerouslySetInnerHTML={{
@@ -50,12 +66,7 @@ export default function Page({ pageData }: PageProps) {
                           }}
                         />
                       </div>
-                      <img
-                        src={item.image.value[0]?.url}
-                        alt=""
-                        className="h-[400px] object-cover rounded-2xl"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-100"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black opacity-100"></div>
                     </div>
                   );
                 }

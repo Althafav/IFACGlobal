@@ -34,32 +34,50 @@ export default function Page({ pageData }: PageProps) {
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover  white-linear-to-bottom-mask"
+            className="absolute inset-0 w-full h-full object-cover brightness-50 "
           >
             <source src={pageData.bannervideolink.value} type="video/mp4" />
           </video>
           <div className="relative z-10 container mx-auto h-full flex flex-col justify-end py-20">
-            <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-extrabold max-w-4xl leading-tight mb-2">
+            <h1 className="text-white text-2xl sm:text-3xl lg:text-5xl font-extrabold max-w-4xl leading-tight mb-2">
               {pageData.bannerheading.value}
             </h1>
-            <p>{pageData.bannersubheading.value}</p>
+            <p className="text-white text-2xl max-w-4xl">
+              {pageData.bannersubheading.value}
+            </p>
 
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
-              {items.map((item: any, idx: number) => (
-                <Link
-                  href={item.link.value}
-                  key={idx}
-                  className=" flex flex-col items-start text-center transition sm:hover:-translate-y-3"
-                >
-                  <img
-                    src={item.image.value[0]?.url}
-                    alt={item.name.value}
-                    className="w-full object-contain mb-3"
-                  />
-                </Link>
-              ))}
+            <div className="mt-10">
+              {pageData.ctabutton.value.map((item: any, index: number) => {
+                return (
+                  <Link
+                    key={index}
+                    href={item.link.value}
+                    className=" p-4 gradient-2 rounded-xl text-white text-md sm:text-2xl"
+                  >
+                    {item.name.value}
+                  </Link>
+                );
+              })}
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto bg-white py-20">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+          {items.map((item: any, idx: number) => (
+            <Link
+              href={item.link.value}
+              key={idx}
+              className=" flex flex-col items-start text-center transition sm:hover:-translate-y-3"
+            >
+              <img
+                src={item.image.value[0]?.url}
+                alt={item.name.value}
+                className="w-full object-contain mb-3"
+              />
+            </Link>
+          ))}
         </div>
       </div>
 
@@ -109,7 +127,10 @@ export default function Page({ pageData }: PageProps) {
               dangerouslySetInnerHTML={{ __html: pageData.aboutcontent.value }}
             />
 
-            <Link href={pageData.aboutctalink.value} className="p-4 gradient-2 rounded-2xl">
+            <Link
+              href={pageData.aboutctalink.value}
+              className="p-4 gradient-2 rounded-2xl"
+            >
               <span>{pageData.aboutctaname.value}</span>
             </Link>
           </div>
