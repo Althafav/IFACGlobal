@@ -149,7 +149,7 @@ export default function Page({ pageData }: PageProps) {
             {/* Left Column: Heading */}
             <div>
               <h2
-                className="text-4xl sm:text-7xl prose text-black leading-tight"
+                className="text-4xl sm:text-7xl prose text-black leading-tight max-w-xl"
                 dangerouslySetInnerHTML={{
                   __html: pageData.whyvisitheading.value,
                 }}

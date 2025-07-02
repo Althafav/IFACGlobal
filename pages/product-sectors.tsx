@@ -31,18 +31,18 @@ export default function Page({ pageData }: PageProps) {
           <div className="relative z-10 container mx-auto h-full flex flex-col justify-end py-10 sm:py-20">
             <h1 className="text-white text-2xl sm:text-3xl lg:text-6xl  max-w-4xl leading-tight font-light">
               <div
-                className="prose prose-invert text-4xl sm:text-6xl text-white mb-3"
+                className="prose prose-invert text-4xl sm:text-5xl text-white mb-3"
                 dangerouslySetInnerHTML={{
                   __html: pageData.bannerheading.value,
                 }}
               />
-              <div
-                className="prose prose-invert text-2xl sm:text-4xl text-white"
-                dangerouslySetInnerHTML={{
-                  __html: pageData.bannersubheading.value,
-                }}
-              />
             </h1>
+            <span
+              className=" text-white bannerdescription"
+              dangerouslySetInnerHTML={{
+                __html: pageData.bannersubheading.value,
+              }}
+            />
           </div>
         </div>
 
@@ -58,19 +58,41 @@ export default function Page({ pageData }: PageProps) {
                         alt=""
                         className="h-[300px] max-w-[350px] object-cover rounded-2xl mb-3"
                       />
-                      <div className="sm:max-w-[300px] mb-5 relative z-10 ">
-                        <span
-                          className="prose text-white prose-invert text-xl  font-light "
+                      <div className="relative -top-10">
+                        <div
+                          className="prose prose-invert text-4xl  font-light sm:max-w-[250px] mb-5 relative z-10 "
+                          dangerouslySetInnerHTML={{
+                            __html: item.heading.value,
+                          }}
+                        />
+                        <div
+                          className="prose text-gray-300 prose-invert text-xl  font-light sm:max-w-[300px] mb-5 relative z-10 "
                           dangerouslySetInnerHTML={{
                             __html: item.content.value,
                           }}
                         />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black opacity-100"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black opacity-100"></div>
                     </div>
                   );
                 }
               )}
+
+              <div className="flex gap-10">
+                <Link
+                  href={pageData.exhibitctalink.value}
+                  className="visitor-cta-btn px-10 py-4 text-white rounded-2xl text-2xl"
+                >
+                  <span>{pageData.exhibitctaname.value}</span>
+                </Link>
+
+                <Link
+                  href={pageData.visitorctalink.value}
+                  className="visitor-cta-btn px-10 py-4 text-white rounded-2xl text-2xl"
+                >
+                  <span>{pageData.visitorctaname.value}</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -3,18 +3,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 @font-face {
-  font-family: "Helvetica Neue";
-  src: url("/fonts/HelveticaNeue.woff2") format("woff2"),
-    url("/fonts/HelveticaNeue.woff") format("woff"),
-    url("/fonts/HelveticaNeue.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue/HelveticaNeue-Regular.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue/HelveticaNeue-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue/HelveticaNeue-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue/HelveticaNeue-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue/HelveticaNeue-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue/HelveticaNeue-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
 }
 
 body {
   background: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -46,7 +78,28 @@ body {
   padding: 20px 0 !important;
 }
 
+.visitor-cta-btn {
+  width: 456px;
+  height: 95px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #c49a6c;
+  background: linear-gradient(90deg, #000 0%, #754c29 100%);
+}
 
+.bannerdescription {
+  p {
+    color: #d5d3d3;
+
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 35px;
+  }
+}
 
 @import "./locals/home.scss";
 @import "./locals/menu-component.scss";
