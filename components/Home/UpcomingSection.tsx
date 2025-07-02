@@ -11,7 +11,7 @@ const UpcomingSection: React.FC<PageDataProps> = ({ pageData }) => {
     return null;
   }
   return (
-    <div className="upcoming-section-wrapper sm:relative -top-10 sm:py-0">
+    <div className="upcoming-section-wrapper sm:relative sm:-top-30 sm:py-0 pb-20">
       <div className="max-w-4xl mx-auto">
         {pageData.upcomingitem.value.map((item: any) => (
           <UpcomingCard key={item.system.id} item={item} date={pageData.upcomingdate.value}/>

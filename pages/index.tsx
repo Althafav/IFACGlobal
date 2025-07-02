@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import MenuComponent from "@/components/Layout/Menu/MenuComponent";
 import UpcomingSection from "@/components/Home/UpcomingSection";
 import GalleryComponent from "@/components/Home/GalleryComponent";
+import SupportingPartnerComponent from "@/components/Home/SupportingPartnerComponent";
+import ProductSectorCarousel from "@/components/Home/ProductSectorCarousel";
 
 type PageProps = {
   pageData: Homepageglobal2026 | null;
@@ -22,7 +24,6 @@ export default function Page({ pageData }: PageProps) {
 
   return (
     <div>
-  
       <div className="homepage">
         <div className="herosection-wrapper-home relative w-full sm:h-screen overflow-hidden">
           {/* Video with darker tint */}
@@ -62,45 +63,81 @@ export default function Page({ pageData }: PageProps) {
       </div>
 
       <div
-        className="about-section-wrapper relative w-full h-[500px] md:h-[600px] py-20 bg-center bg-cover"
+        className="about-section-wrapper relative w-full py-20 bg-center bg-cover"
         style={{ backgroundImage: `url(${pageData.aboutimage.value[0]?.url})` }}
       >
-        <div className="relative z-10 max-w-5xl px-5 mx-auto h-full flex items-center">
-          <div className="max-w-2xl text-white space-y-6">
+        <div className="relative z-10 container mx-auto h-full flex items-center">
+          <div className="max-w-3xl text-white space-y-6">
             <h2 className="text-3xl sm:text-4xl  font-bold leading-tighter">
               {pageData.aboutheading.value}
             </h2>
 
+            <h4 className="text-3xl leading-tighter">
+              {pageData.aboutsubheading.value}
+            </h4>
+
             <div
-              className="text-white prose text-base sm:text-lg"
+              className="text-white prose text-base sm:text-lg mb-10"
               dangerouslySetInnerHTML={{ __html: pageData.aboutcontent.value }}
             />
 
-            <Link
-              href="/about"
-              className="inline-flex items-center text-white font-medium hover:underline"
-            >
-              Read more
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+            <Link href="/about" className="p-4 gradient-2 rounded-2xl">
+              <span>{pageData.aboutctaname.value}</span>
             </Link>
           </div>
         </div>
       </div>
 
-      <UpcomingSection pageData={pageData} />
+      <div
+        className="why-attend-section-wrapper py-20 bg-cover bg-center relative"
+        style={{
+          backgroundImage: `url(${pageData.whyvisitbackgroundimage.value[0]?.url})`,
+        }}
+      >
+        <UpcomingSection pageData={pageData} />
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            {/* Left Column: Heading */}
+            <div>
+              <h2
+                className="text-4xl sm:text-7xl prose text-black leading-tight"
+                dangerouslySetInnerHTML={{
+                  __html: pageData.whyvisitheading.value,
+                }}
+              />
+            </div>
+
+            {/* Right Column: Description + Features */}
+            <div>
+              <div
+                className="text-lg mb-6"
+                dangerouslySetInnerHTML={{
+                  __html: pageData.whyvisitdescription.value,
+                }}
+              />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {pageData.whyvisititems.value.map(
+                  (item: any, index: number) => (
+                    <div
+                      key={index}
+                      className="border border-yellow-500 rounded-md p-4 text-lg font-semibold leading-snug"
+                    >
+                      {item.name.value}
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <GalleryComponent pageData={pageData} />
+
+      <ProductSectorCarousel pageData={pageData} />
+
+      <SupportingPartnerComponent />
     </div>
   );
 }
