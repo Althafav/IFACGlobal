@@ -56,7 +56,7 @@ export default function Page({ pageData }: PageProps) {
                       <img
                         src={item.image.value[0]?.url}
                         alt=""
-                        className="h-[400px] max-w-[350px] object-cover rounded-2xl mb-3"
+                        className="h-[300px] max-w-[350px] object-cover rounded-2xl mb-3"
                       />
                       <div className="sm:max-w-[300px] mb-5 relative z-10 ">
                         <span
