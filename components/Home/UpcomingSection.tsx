@@ -14,14 +14,30 @@ const UpcomingSection: React.FC<PageDataProps> = ({ pageData }) => {
     <div className="upcoming-section-wrapper sm:relative sm:-top-30 sm:py-0 pb-20">
       <div className="max-w-4xl mx-auto">
         {pageData.upcomingitem.value.map((item: any) => (
-          <UpcomingCard key={item.system.id} item={item} date={pageData.upcomingdate.value}/>
+          <UpcomingCard
+            key={item.system.id}
+            item={item}
+            date={pageData.upcomingdate.value}
+            ctaName={pageData.upcomingctaname.value}
+            ctaLink={pageData.upcomingctalink.value}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-function UpcomingCard({ item, date }: { item: any, date: any }) {
+function UpcomingCard({
+  item,
+  date,
+  ctaName,
+  ctaLink,
+}: {
+  item: any;
+  date: any;
+  ctaName: any;
+  ctaLink: any;
+}) {
   const [remaining, setRemaining] = useState({
     months: 0,
     days: 0,
@@ -63,9 +79,9 @@ function UpcomingCard({ item, date }: { item: any, date: any }) {
           <span className="text-green-600">Ready</span>{" "}
           <span className="font-light">for</span>
         </h3>
-        <Link href="/booking">
+        <Link href={ctaLink}>
           <span className="bg-gradient-to-r from-green-600 to-green-400 text-white px-4 py-2 rounded-lg shadow">
-            Book Now
+            {ctaName}
           </span>
         </Link>
       </div>
@@ -108,4 +124,4 @@ function UpcomingCard({ item, date }: { item: any, date: any }) {
   );
 }
 
-export default UpcomingSection
+export default UpcomingSection;
