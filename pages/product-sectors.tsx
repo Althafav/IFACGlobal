@@ -20,7 +20,7 @@ export default function Page({ pageData }: PageProps) {
     <div>
       <MenuComponent />
       <div className="product-sector-page-wrapper">
-        <div className="herosection-wrapper-home relative w-full sm:h-[400px] overflow-hidden">
+        <div className="herosection-wrapper-home relative w-full py-20 overflow-hidden">
           <img
             className="absolute inset-0 w-full h-full object-cover"
             src={pageData.bannerimage.value[0]?.url}
@@ -30,13 +30,13 @@ export default function Page({ pageData }: PageProps) {
 
           <div className="relative z-10 container mx-auto h-full flex flex-col justify-end py-10 sm:py-20">
             <h1 className="text-white text-2xl sm:text-3xl lg:text-6xl  max-w-4xl leading-tight font-light">
-              <span
-                className="prose prose-invert text-4xl sm:text-6xl text-white"
+              <div
+                className="prose prose-invert text-4xl sm:text-6xl text-white mb-3"
                 dangerouslySetInnerHTML={{
                   __html: pageData.bannerheading.value,
                 }}
               />
-              <span
+              <div
                 className="prose prose-invert text-2xl sm:text-4xl text-white"
                 dangerouslySetInnerHTML={{
                   __html: pageData.bannersubheading.value,
@@ -52,15 +52,15 @@ export default function Page({ pageData }: PageProps) {
               {pageData.productsectoritems.value.map(
                 (item: any, index: number) => {
                   return (
-                    <div className="relative" key={index}>
+                    <div className="relative overflow-hidden" key={index}>
                       <img
                         src={item.image.value[0]?.url}
                         alt=""
                         className="h-[400px] max-w-[350px] object-cover rounded-2xl mb-3"
                       />
-                      <div className="sm:max-w-[200px] mb-5 relative z-10 ">
+                      <div className="sm:max-w-[300px] mb-5 relative z-10 ">
                         <span
-                          className="prose text-white prose-invert text-xl sm:text-3xl font-light "
+                          className="prose text-white prose-invert text-xl  font-light "
                           dangerouslySetInnerHTML={{
                             __html: item.content.value,
                           }}
