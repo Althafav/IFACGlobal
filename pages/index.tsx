@@ -63,9 +63,36 @@ export default function Page({ pageData }: PageProps) {
       </div>
 
       <div
-        className="about-section-wrapper relative w-full py-20 bg-center bg-cover"
+        className="about-section-wrapper relative w-full pt-10 pb-40 bg-center bg-cover"
         style={{ backgroundImage: `url(${pageData.aboutimage.value[0]?.url})` }}
       >
+        <div className="container mx-auto">
+          <div className=" bg-opacity-60 pb-20">
+            <div className="container mx-auto">
+              <div className="flex items-center justify-start gap-10">
+                {pageData.statsitems.value.map((item: any, idx: number) => (
+                  <React.Fragment key={idx}>
+                    <div className="flex flex-col items-left gap">
+                      <h4 className="text-5xl md:text-7xl font-medium text-white">
+                        {item.count.value.toLocaleString()}
+                      </h4>
+                      <p className="mt-2 text-sm md:text-base text-white uppercase max-w-[200px]">
+                        {item.name.value}
+                      </p>
+                    </div>
+                    {idx < pageData.statsitems.value.length - 1 && (
+                      <div
+                        className="h-20 w-3 mx-4
+                         bg-gradient-to-b
+                         from-[#8B4513] to-black"
+                      />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="relative z-10 container mx-auto h-full flex items-center">
           <div className="max-w-3xl text-white space-y-6">
             <h2 className="text-3xl sm:text-4xl  font-bold leading-tighter">

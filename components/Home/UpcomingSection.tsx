@@ -75,15 +75,10 @@ function UpcomingCard({
       {/* Header */}
       <div className="flex justify-between items-center">
         <h3 className="text-xl md:text-4xl font-bold uppercase">
-          <span className="font-light">We are</span>{" "}
-          <span className="text-green-600">Ready</span>{" "}
-          <span className="font-light">for</span>
+          <span className="font-medium">We are</span>{" "}
+          <span className="">Ready</span>{" "}
+          <span className="font-medium">for</span>
         </h3>
-        <Link href={ctaLink}>
-          <span className="bg-gradient-to-r from-green-600 to-green-400 text-white px-4 py-2 rounded-lg shadow">
-            {ctaName}
-          </span>
-        </Link>
       </div>
 
       {/* Body */}
@@ -104,20 +99,30 @@ function UpcomingCard({
         </div>
 
         {/* Countdown boxes */}
-        <div className="flex gap-5">
-          {[
-            { label: "Months", value: remaining.months },
-            { label: "Days", value: remaining.days },
-            { label: "Hours", value: remaining.hours },
-          ].map((block) => (
-            <div
-              key={block.label}
-              className="bg-white border border-gray-200 rounded-lg shadow p-3 text-center"
-            >
-              <p className="text-6xl md:text-9xl">{block.value}</p>
-              <p className="text-xs text-gray-500 uppercase">{block.label}</p>
-            </div>
-          ))}
+        <div className="flex flex-col gap-5">
+          <div className="flex gap-5">
+            {[
+              { label: "Months", value: remaining.months },
+              { label: "Days", value: remaining.days },
+              { label: "Hours", value: remaining.hours },
+            ].map((block) => (
+              <div
+                key={block.label}
+                className="bg-white border border-gray-200 rounded-lg shadow p-3 text-center"
+              >
+                <p className="text-6xl md:text-9xl">{block.value}</p>
+                <p className="text-xs text-gray-500 uppercase">{block.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <Link href={ctaLink}>
+              <span className="bg-gradient-to-r from-green-900 to-green-400 text-white text-2xl px-4 py-2 rounded-lg shadow">
+                {ctaName}
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
