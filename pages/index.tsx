@@ -10,6 +10,7 @@ import UpcomingSection from "@/components/Home/UpcomingSection";
 import GalleryComponent from "@/components/Home/GalleryComponent";
 import SupportingPartnerComponent from "@/components/Home/SupportingPartnerComponent";
 import ProductSectorCarousel from "@/components/Home/ProductSectorCarousel";
+import GlobalSupportingPartnerCarousel from "@/components/Home/Woodshow/GlobalSupportingPartnerCarousel";
 
 type PageProps = {
   pageData: Homepageglobal2026 | null;
@@ -108,7 +109,7 @@ export default function Page({ pageData }: PageProps) {
               dangerouslySetInnerHTML={{ __html: pageData.aboutcontent.value }}
             />
 
-            <Link href="/about" className="p-4 gradient-2 rounded-2xl">
+            <Link href={pageData.aboutctalink.value} className="p-4 gradient-2 rounded-2xl">
               <span>{pageData.aboutctaname.value}</span>
             </Link>
           </div>
@@ -164,7 +165,7 @@ export default function Page({ pageData }: PageProps) {
 
       <ProductSectorCarousel pageData={pageData} />
 
-      <SupportingPartnerComponent />
+      <GlobalSupportingPartnerCarousel />
     </div>
   );
 }

@@ -7,9 +7,8 @@ interface PageDataProps {
 }
 
 const UpcomingSection: React.FC<PageDataProps> = ({ pageData }) => {
-  if (!pageData) {
-    return null;
-  }
+  if (!pageData) return null;
+
   return (
     <div className="upcoming-section-wrapper sm:relative sm:-top-30 sm:py-0 pb-20">
       <div className="max-w-4xl mx-auto">
@@ -35,48 +34,60 @@ function UpcomingCard({
 }: {
   item: any;
   date: any;
-  ctaName: any;
-  ctaLink: any;
+  ctaName: string;
+  ctaLink: string;
 }) {
   const [remaining, setRemaining] = useState({
     months: 0,
     days: 0,
     hours: 0,
+    seconds: 0,
   });
 
   useEffect(() => {
     function calculate() {
-      const now = new Date();
-      const then = new Date(date);
-      let diff = then.getTime() - now.getTime();
+      const now = Date.now();
+      const then = new Date(date).getTime();
+      let diff = Math.max(0, then - now);
 
-      const monthMs = 1000 * 60 * 60 * 24 * 30;
-      const dayMs = 1000 * 60 * 60 * 24;
-      const hourMs = 1000 * 60 * 60;
+      const msInMonth = 1000 * 60 * 60 * 24 * 30;
+      const msInDay = 1000 * 60 * 60 * 24;
+      const msInHour = 1000 * 60 * 60;
+      const msInSec = 1000;
 
-      const months = Math.max(0, Math.floor(diff / monthMs));
-      diff -= months * monthMs;
+      const months = Math.floor(diff / msInMonth);
+      diff -= months * msInMonth;
 
-      const days = Math.max(0, Math.floor(diff / dayMs));
-      diff -= days * dayMs;
+      const days = Math.floor(diff / msInDay);
+      diff -= days * msInDay;
 
-      const hours = Math.max(0, Math.floor(diff / hourMs));
+      const hours = Math.floor(diff / msInHour);
+      diff -= hours * msInHour;
 
-      setRemaining({ months, days, hours });
+      // diff now < 1 hour
+      const seconds = Math.floor(diff / msInSec) % 60;
+
+      setRemaining({ months, days, hours, seconds });
     }
 
     calculate();
-    const id = setInterval(calculate, 60 * 60 * 1000);
-    return () => clearInterval(id);
+    const intervalId = setInterval(calculate, 1000);
+    return () => clearInterval(intervalId);
   }, [date]);
+
+  const blocks = [
+    { label: "Months", value: remaining.months },
+    { label: "Days", value: remaining.days },
+    { label: "Hours", value: remaining.hours },
+    { label: "Seconds", value: remaining.seconds },
+  ];
 
   return (
     <div className="bg-white rounded-xl upcoming-card shadow-lg p-6 flex flex-col space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h3 className="text-xl md:text-4xl font-bold uppercase">
-          <span className="font-medium">We are</span>{" "}
-          <span className="">Ready</span>{" "}
+          <span className="font-medium">We are</span> <span>Ready</span>{" "}
           <span className="font-medium">for</span>
         </h3>
       </div>
@@ -100,17 +111,15 @@ function UpcomingCard({
 
         {/* Countdown boxes */}
         <div className="flex flex-col gap-5">
-          <div className="flex gap-5">
-            {[
-              { label: "Months", value: remaining.months },
-              { label: "Days", value: remaining.days },
-              { label: "Hours", value: remaining.hours },
-            ].map((block) => (
+          <div className="flex gap-5 flex-wrap">
+            {blocks.map((block) => (
               <div
                 key={block.label}
                 className="bg-white border border-gray-200 rounded-lg shadow p-3 text-center"
               >
-                <p className="text-6xl md:text-9xl">{block.value}</p>
+                <p className="text-6xl md:text-6xl">
+                  {String(block.value).padStart(2, "0")}
+                </p>
                 <p className="text-xs text-gray-500 uppercase">{block.label}</p>
               </div>
             ))}
