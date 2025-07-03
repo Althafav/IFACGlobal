@@ -18,7 +18,6 @@ export default function Page({ pageData }: PageProps) {
 
   return (
     <div>
-      <MenuComponent />
       <div className="product-sector-page-wrapper">
         <div className="herosection-wrapper-home relative w-full py-20 overflow-hidden">
           <img
@@ -77,22 +76,22 @@ export default function Page({ pageData }: PageProps) {
                   );
                 }
               )}
+            </div>
 
-              <div className="flex gap-10">
-                <Link
-                  href={pageData.exhibitctalink.value}
-                  className="visitor-cta-btn px-10 py-4 text-white rounded-2xl text-2xl"
-                >
-                  <span>{pageData.exhibitctaname.value}</span>
-                </Link>
+            <div className="flex gap-10 py-20">
+              <Link
+                href="/book-your-stand"
+                className="w-[400px] flex justify-center items-center gradient-1 px-10 py-4 text-white rounded-2xl sm:text-2xl"
+              >
+                <span>I AM EXHIBITOR</span>
+              </Link>
 
-                <Link
-                  href={pageData.visitorctalink.value}
-                  className="visitor-cta-btn px-10 py-4 text-white rounded-2xl text-2xl"
-                >
-                  <span>{pageData.visitorctaname.value}</span>
-                </Link>
-              </div>
+              <Link
+                href="/register-your-interest"
+                className="w-[400px] flex justify-center items-center gradient-1 px-10 py-4 text-white rounded-2xl sm:text-2xl"
+              >
+                <span>I AM VISITOR</span>
+              </Link>
             </div>
           </div>
         </div>

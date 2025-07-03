@@ -19,7 +19,6 @@ export default function Page({ pageData }: PageProps) {
 
   return (
     <div>
- 
       <div className="homepage">
         <div className="herosection-wrapper-home relative w-full sm:h-screen overflow-hidden">
           {/* Video with darker tint */}
@@ -29,7 +28,7 @@ export default function Page({ pageData }: PageProps) {
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover white-linear-to-bottom-mask"
+            className="absolute inset-0 w-full h-full object-cover brightness-90 "
           >
             <source src={pageData.bannervideolink.value} type="video/mp4" />
           </video>
@@ -39,7 +38,7 @@ export default function Page({ pageData }: PageProps) {
               src={pageData.eventlogo.value[0]?.url}
               alt={pageData.bannerheading.value}
             />
-            <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-extrabold max-w-4xl leading-tight">
+            <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl font-medium max-w-4xl leading-tight">
               {pageData.bannerheading.value}
             </h1>
 
@@ -55,6 +54,7 @@ export default function Page({ pageData }: PageProps) {
                   return (
                     <Link
                       href={item.link.value}
+                      key={index}
                       className="px-4 py-2 dubai-cta-gradient-bg text-white text-md sm:text-2xl"
                     >
                       <span>{item.name.value}</span>

@@ -65,7 +65,7 @@ export default function Page({ pageData }: PageProps) {
 
           <div className="container mx-auto relative z-10">
             <div className="flex justify-center  flex-col">
-              <h2 className="text-6xl font-bold text-white mb-20">
+              <h2 className="text-3xl sm:text-6xl font-bold text-white mb-20">
                 {pageData.visitorbenefitheading.value}
               </h2>
               <div className="grid sm:grid-cols-2 grid-cols-1 gap-20">
@@ -75,7 +75,7 @@ export default function Page({ pageData }: PageProps) {
                       <img
                         src={item.image.value[0]?.url}
                         alt=""
-                        className="w-[120px] object-contain"
+                        className="w-[80px] object-contain"
                       />
                       <div className="max-w-[400px]">
                         <p className="text-white font-light text-2xl">
@@ -99,7 +99,7 @@ export default function Page({ pageData }: PageProps) {
         <div className="visitor-profile-section py-20">
           <div className="container mx-auto">
             <div className="mb-20">
-              <h2 className="text-7xl text-gradient-1 font-medium tracking-tighter">
+              <h2 className="text-4xl sm:text-7xl text-gradient-1 font-medium tracking-tighter">
                 {pageData.visitorprofileheading.value}
               </h2>
               <h2 className="text-3xl tracking-tighter mx-2">
@@ -107,7 +107,7 @@ export default function Page({ pageData }: PageProps) {
               </h2>
             </div>
 
-            <div className="grid grid-cols-3 gap-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
               {pageData.visitorprofileitems.value.map(
                 (item: any, index: number) => {
                   return (
@@ -115,7 +115,7 @@ export default function Page({ pageData }: PageProps) {
                       <img
                         src={item.image.value[0]?.url}
                         alt=""
-                        className="w-1/2 object-contain gap-10"
+                        className="aspect-video object-contain gap-10"
                       />
 
                       <div className="max-w-[200px]">
@@ -132,9 +132,19 @@ export default function Page({ pageData }: PageProps) {
               )}
             </div>
 
-            <div className="mt-30">
-              <Link href={pageData.ctabuttonlink.value} className="gradient-1 p-4 text-white rounded-xl text-3xl">
-                <span>{pageData.ctabuttonname.value}</span>
+            <div className="flex gap-10 py-20">
+              <Link
+                href="/book-your-stand"
+                className="w-[400px] flex justify-center items-center gradient-1 px-10 py-4 text-white rounded-2xl sm:text-2xl"
+              >
+                <span>I AM EXHIBITOR</span>
+              </Link>
+
+              <Link
+                href="/register-your-interest"
+                className="w-[400px] flex justify-center items-center gradient-1 px-10 py-4 text-white rounded-2xl sm:text-2xl"
+              >
+                <span>I AM VISITOR</span>
               </Link>
             </div>
           </div>
