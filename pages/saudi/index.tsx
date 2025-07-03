@@ -19,7 +19,6 @@ export default function Page({ pageData }: PageProps) {
 
   return (
     <div>
-     
       <div className="homepage">
         <div className="herosection-wrapper-home relative w-full sm:h-screen overflow-hidden">
           {/* Video with darker tint */}
@@ -29,7 +28,7 @@ export default function Page({ pageData }: PageProps) {
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover white-linear-to-bottom-mask"
+            className="absolute inset-0 w-full h-full object-cover brightness-60 "
           >
             <source src={pageData.bannervideolink.value} type="video/mp4" />
           </video>
@@ -39,23 +38,22 @@ export default function Page({ pageData }: PageProps) {
               src={pageData.eventlogo.value[0]?.url}
               alt={pageData.bannerheading.value}
             />
-            <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-extrabold max-w-4xl leading-tight">
+            <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl font-medium max-w-4xl leading-tight mb-4">
               {pageData.bannerheading.value}
             </h1>
 
             <div>
-              <p className="text-primary-saudi text-2xl font-bold">
+              <p className="text-white/90 text-4xl font-bold">
                 {pageData.date.value}
               </p>
-              <p className="text-xl text-gray-600 mb-5">
-                {pageData.venue.value}
-              </p>
+              <p className="text-xl text-white mb-10">{pageData.venue.value}</p>
               <div>
                 {pageData.ctabutton.value.map((item: any, index: number) => {
                   return (
                     <Link
                       href={item.link.value}
-                      className="px-4 py-2 saudi-cta-gradient-bg text-white text-xl"
+                      key={index}
+                      className="p-4 saudi-cta-gradient-bg text-white text-md sm:text-2xl"
                     >
                       <span>{item.name.value}</span>
                     </Link>
@@ -72,20 +70,22 @@ export default function Page({ pageData }: PageProps) {
                   flex items-center justify-center
                   "
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 divide-x-2 divide-red-600">
-            {pageData.statsitems.value.map((item, index) => (
-              <div
-                key={index}
-                className="flex-1 flex flex-col items-center px-8"
-              >
-                <p className="text-6xl font-extrabold text-black mb-2 text-stroke-black ">
-                  {item.count.value}
-                </p>
-                <p className="text-sm uppercase tracking-wide text-gray-700">
-                  {item.name.value}
-                </p>
-              </div>
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 divide-x-2 divide-red-600">
+              {pageData.statsitems.value.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex-1 flex flex-col items-center px-8"
+                >
+                  <p className="text-6xl font-extrabold text-black mb-2 text-stroke-black ">
+                    {item.count.value}
+                  </p>
+                  <p className="text-sm uppercase tracking-wide text-gray-700">
+                    {item.name.value}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function Page({ pageData }: PageProps) {
               className="text-white prose text-base sm:text-lg"
               dangerouslySetInnerHTML={{ __html: pageData.aboutcontent.value }}
             />
-
+            {/* 
             <Link
               href="/about"
               className="inline-flex items-center text-white font-medium hover:underline"
@@ -126,37 +126,39 @@ export default function Page({ pageData }: PageProps) {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
 
       <div className="why-exhibit-wrapper container mx-auto py-20">
-        <div className="grid grid-col-1 sm:grid-cols-3 gap-10">
-          <h2 className="why-heading text-3xl sm:text-5xl font-bold sm:py-20">
-            {pageData.whyexhibitheading1.value}{" "}
-            <span className="text-primary-saudi">
-              {pageData.whyexhibitheading2.value}
-            </span>
-          </h2>
-          {pageData.whyexhibititems.value.map((item, idx) => {
-            return (
-              <div className={`why-card border-gray-300 `} key={idx}>
-                <div className="why-image">
-                  <img src={item.image.value[0]?.url} alt={item.name.value} />
+        <div className="flex justify-center">
+          <div className="grid grid-col-1 sm:grid-cols-3 gap-10">
+            <h2 className="why-heading text-3xl sm:text-5xl font-bold sm:py-20">
+              {pageData.whyexhibitheading1.value}{" "}
+              <span className="text-primary-saudi">
+                {pageData.whyexhibitheading2.value}
+              </span>
+            </h2>
+            {pageData.whyexhibititems.value.map((item, idx) => {
+              return (
+                <div className={`why-card border-gray-300 `} key={idx}>
+                  <div className="why-image">
+                    <img src={item.image.value[0]?.url} alt={item.name.value} />
+                  </div>
+                  <div className="why-contents-wrap relative -top-16">
+                    <h4 className="why-title font-bold text-2xl mb-5 max-w-[200px]">
+                      {item.name.value}
+                    </h4>
+                    <span
+                      className="why-text text-sm"
+                      dangerouslySetInnerHTML={{ __html: item.content.value }}
+                    />
+                  </div>
                 </div>
-                <div className="why-contents-wrap relative -top-16">
-                  <h4 className="why-title font-bold text-2xl mb-5 max-w-[200px]">
-                    {item.name.value}
-                  </h4>
-                  <span
-                    className="why-text text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.content.value }}
-                  />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 

@@ -28,7 +28,7 @@ export default function Page({ pageData }: PageProps) {
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover brightness-90 "
+            className="absolute inset-0 w-full h-full object-cover brightness-60 "
           >
             <source src={pageData.bannervideolink.value} type="video/mp4" />
           </video>
@@ -38,15 +38,15 @@ export default function Page({ pageData }: PageProps) {
               src={pageData.eventlogo.value[0]?.url}
               alt={pageData.bannerheading.value}
             />
-            <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl font-medium max-w-4xl leading-tight">
+            <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl font-medium max-w-4xl leading-tight mb-4">
               {pageData.bannerheading.value}
             </h1>
 
             <div>
-              <p className="text-primary-dubai text-2xl font-bold">
+              <p className="text-white/90 text-4xl font-bold">
                 {pageData.date.value}
               </p>
-              <p className="text-xl text-gray-600 mb-5">
+              <p className="text-xl text-white mb-10">
                 {pageData.venue.value}
               </p>
               <div>
@@ -55,7 +55,7 @@ export default function Page({ pageData }: PageProps) {
                     <Link
                       href={item.link.value}
                       key={index}
-                      className="px-4 py-2 dubai-cta-gradient-bg text-white text-md sm:text-2xl"
+                      className="p-4 dubai-cta-gradient-bg text-white text-md sm:text-2xl"
                     >
                       <span>{item.name.value}</span>
                     </Link>
@@ -108,25 +108,25 @@ export default function Page({ pageData }: PageProps) {
               dangerouslySetInnerHTML={{ __html: pageData.aboutcontent.value }}
             />
 
-            <Link
-              href="/about"
-              className="inline-flex items-center text-white font-medium hover:underline"
-            >
-              Read more
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              {/* <Link
+                href="/about"
+                className="inline-flex items-center text-white font-medium hover:underline"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
+                Read more
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link> */}
           </div>
         </div>
       </div>
