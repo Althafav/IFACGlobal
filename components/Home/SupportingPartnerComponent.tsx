@@ -10,7 +10,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function SupportingPartnerComponent() {
+export default function SupportingPartnerComponent(props: any) {
   const [pageData, setPageData] = useState<Partnerpage | null>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 

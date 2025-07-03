@@ -26,7 +26,7 @@ export default function Page({ pageData }: PageProps) {
   return (
     <div>
       <div className="homepage">
-        <div className="herosection-wrapper-home relative w-full sm:h-screen overflow-hidden">
+        <div className="herosection-wrapper-home bg-black relative w-full sm:h-screen overflow-hidden">
           {/* Video with darker tint */}
           <video
             autoPlay
@@ -92,10 +92,10 @@ export default function Page({ pageData }: PageProps) {
                 {pageData.statsitems.value.map((item: any, idx: number) => (
                   <React.Fragment key={idx}>
                     <div className="flex flex-col items-left gap">
-                      <h4 className="text-5xl md:text-7xl font-medium text-white">
+                      <h4 className="text-5xl md:text-7xl font-medium text-white tracking-tighter leading-tighter">
                         {item.count.value.toLocaleString()}
                       </h4>
-                      <p className="mt-2 text-sm md:text-base text-white uppercase max-w-[200px]">
+                      <p className="mt-2 text-sm md:text-base text-white uppercase max-w-[200px] ">
                         {item.name.value}
                       </p>
                     </div>
@@ -186,7 +186,8 @@ export default function Page({ pageData }: PageProps) {
 
       <ProductSectorCarousel pageData={pageData} />
 
-      <GlobalSupportingPartnerCarousel />
+      <GlobalSupportingPartnerCarousel apiCode="woodshow_global_partners" />
+     
     </div>
   );
 }

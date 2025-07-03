@@ -20,7 +20,7 @@ export default function Page({ pageData }: PageProps) {
   return (
     <div>
       <div className="homepage">
-        <div className="herosection-wrapper-home relative w-full sm:h-screen overflow-hidden">
+        <div className="herosection-wrapper-home bg-black relative w-full sm:h-screen overflow-hidden">
           {/* Video with darker tint */}
           <video
             autoPlay

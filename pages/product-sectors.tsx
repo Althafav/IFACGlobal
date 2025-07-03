@@ -45,7 +45,7 @@ export default function Page({ pageData }: PageProps) {
           </div>
         </div>
 
-        <div className="product-items-wrapper bg-black py-20">
+        <div className="product-items-wrapper bg-black py-10">
           <div className="container mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-10 sm:gap-20">
               {pageData.productsectoritems.value.map(

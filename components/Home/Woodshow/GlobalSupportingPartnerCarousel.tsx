@@ -7,12 +7,18 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import Globals from "@/modules/Globals";
 
-const GlobalSupportingPartnerCarousel: React.FC = () => {
+interface PageDataProps {
+  apiCode?: string;
+}
+
+const GlobalSupportingPartnerCarousel: React.FC<PageDataProps> = ({
+  apiCode,
+}) => {
   const [pageData, setpageData] = useState<any | null>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
-    Globals.WSG_KontentClient.item("woodshow_global_partners")
+    Globals.WSG_KontentClient.item(apiCode)
       .toPromise()
       .then((res: any) => setpageData(res.item));
   }, []);
